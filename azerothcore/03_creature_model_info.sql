@@ -27,5 +27,6 @@ WHERE mi.`DisplayID` IN (
   WHERE `CreatureID` IN (
     SELECT DISTINCT `id` FROM `creature` WHERE `map` = @map_id
   )
+  AND `Idx` <= 3
 )
 ORDER BY mi.`DisplayID`;
