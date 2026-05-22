@@ -11,6 +11,11 @@ SET @map_id := 974;
 SET @creature_level := 80;
 
 -- creature --------------------------------------------------------------------
--- Written to spawnMask and phaseMask on every spawn. 3.3.5a has no phasing.
+-- spawnMask: difficulty bitmask written to every spawn -- 1 = 10-man-normal
+-- (and every non-instanced / open-world map), 2 = 25N, 4 = 10HC, 8 = 25HC,
+-- 15 = all. TrinityCore stores the per-spawn difficulty set in
+-- creature.spawnDifficulties instead; this constant is chosen per conversion.
 SET @spawn_mask := 1;
+-- phaseMask: phase bitmask written to every spawn. 3.3.5a phasing is a plain
+-- bitmask (1 = base phase); TrinityCore's PhaseId/PhaseGroup do not map onto it.
 SET @phase_mask := 1;
